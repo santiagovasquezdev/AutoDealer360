@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AutoDealer360: prototipo front-end de un concesionario de vehículos. Busca, conoce y compara opciones disponibles.">
+  <meta name="theme-color" content="#0f172a">
+  <title>AutoDealer360 | Tu próximo vehículo comienza aquí</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" id="inicio">
+    <nav class="navbar container" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="AutoDealer360, ir al inicio">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 34 34" fill="none"><path d="M5 21 9 13a5 5 0 0 1 4.4-2.7h8.2A5 5 0 0 1 26 13l3 8" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/><path d="M6 20h22v7H6z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M10 27v2m14-2v2" stroke="currentColor" stroke-width="2.7" stroke-linecap="round"/><circle cx="10.4" cy="22.8" r="1.5" fill="currentColor"/><circle cx="23.6" cy="22.8" r="1.5" fill="currentColor"/></svg></span>
+        <span>AutoDealer<span class="brand-accent">360</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Mostrar menú" aria-controls="main-nav" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-items" id="main-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#vehiculos">Vehículos</a>
+        <a href="#empresa">Empresa</a>
+        <a href="#administracion">Administrador</a>
+        <a href="#contacto">Contacto</a>
+        <button id="btn-login" class="btn btn-outline btn-sm" type="button">Iniciar sesión</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> CONCESIONARIO DIGITAL</p>
+          <h1 id="hero-title">Tu próximo vehículo <span>comienza aquí.</span></h1>
+          <p class="hero-subtitle">Explora nuestro inventario, compara opciones y encuentra el automóvil que se adapta a tus planes.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#vehiculos">Explorar vehículos <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="#empresa">Conócenos <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-trust" aria-label="Beneficios de AutoDealer360">
+            <span>✓ Fichas claras</span><span>✓ Búsqueda sencilla</span><span>✓ Contacto rápido</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-halo" aria-hidden="true"></div>
+          <img src="assets/hero-auto.svg" alt="Ilustración de vehículo deportivo gris sobre fondo oscuro" width="920" height="560">
+          <div class="hero-floating"><span class="floating-dot"></span><span><strong>AutoDealer360</strong><small>Inventario de demostración</small></span></div>
+        </div>
+      </div>
+      <div class="hero-edge" aria-hidden="true"></div>
+    </section>
+
+    <section class="features-strip" aria-label="Ventajas de nuestro servicio">
+      <div class="container features-grid">
+        <div class="feature"><span class="feature-icon">◇</span><div><strong>Variedad</strong><small>Marcas y modelos</small></div></div>
+        <div class="feature"><span class="feature-icon">◎</span><div><strong>Información confiable</strong><small>Características detalladas</small></div></div>
+        <div class="feature"><span class="feature-icon">↗</span><div><strong>Contacto ágil</strong><small>Atención personalizada</small></div></div>
+      </div>
+    </section>
+
+    <section id="vehiculos" class="section catalog-section" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">NUESTRO INVENTARIO</p><h2 id="catalog-title">Encuentra el vehículo ideal</h2><p class="muted">Filtra por marca, modelo, año o presupuesto. Datos ilustrativos del prototipo.</p></div><span class="section-tag">Catálogo interactivo</span></div>
+        <form id="search-form" class="filters-panel" aria-label="Filtros de búsqueda de vehículos">
+          <div class="form-field"><label for="f-marca">Marca</label><select id="f-marca" name="marca"><option value="">Todas las marcas</option></select></div>
+          <div class="form-field"><label for="f-modelo">Modelo</label><input id="f-modelo" name="modelo" type="search" placeholder="Ej. Corolla" autocomplete="off"></div>
+          <div class="form-field"><label for="f-anio">Año mínimo</label><select id="f-anio" name="anio"><option value="">Cualquier año</option><option value="2024">2024</option><option value="2023">2023</option><option value="2022">2022</option><option value="2021">2021</option></select></div>
+          <div class="form-field"><label for="f-precio">Precio máximo (COP)</label><select id="f-precio" name="precio"><option value="">Sin límite</option><option value="80000000">$80 millones</option><option value="120000000">$120 millones</option><option value="180000000">$180 millones</option><option value="260000000">$260 millones</option></select></div>
+          <button class="btn btn-gold btn-filter" type="submit">Buscar <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="catalog-toolbar"><p id="result-count" role="status" aria-live="polite">Cargando vehículos…</p><div class="toolbar-actions"><label for="orden">Ordenar por</label><select id="orden"><option value="destacados">Destacados</option><option value="precio-asc">Precio: menor a mayor</option><option value="precio-desc">Precio: mayor a menor</option><option value="anio-desc">Año más reciente</option></select><button class="text-button" type="button" id="reset-filters">Limpiar filtros</button></div></div>
+        <div id="vehicle-grid" class="vehicle-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>No encontramos vehículos</h3><p>Prueba con otra marca, año o rango de precio.</p><button type="button" class="btn btn-dark" id="empty-reset">Mostrar todos</button></div>
+      </div>
+    </section>
+
+    <section id="empresa" class="section company-section" aria-labelledby="company-title">
+      <div class="container company-grid">
+        <div class="company-art" aria-hidden="true"><div class="company-frame"><span class="company-outline">360</span><div class="company-statement">MÁS QUE AUTOS.<br><strong>NUEVAS RUTAS.</strong></div></div></div>
+        <div class="company-copy"><p class="eyebrow eyebrow-dark">SOBRE NOSOTROS</p><h2 id="company-title">Una forma más simple de encontrar tu próximo auto</h2><p>AutoDealer360 es una propuesta de plataforma web para un concesionario: acerca el inventario a los clientes y ofrece herramientas sencillas de administración.</p><div class="company-values"><article><span>01</span><div><h3>Misión</h3><p>Facilitar el acceso a información clara y organizada de los vehículos disponibles.</p></div></article><article><span>02</span><div><h3>Visión</h3><p>Consolidar una experiencia digital intuitiva para consultar y administrar automóviles.</p></div></article><article><span>03</span><div><h3>Valores</h3><p>Transparencia, servicio, confianza y mejora continua.</p></div></article></div></div>
+      </div>
+    </section>
+
+    <section id="administracion" class="section admin-section" aria-labelledby="admin-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">PANEL DE GESTIÓN</p><h2 id="admin-title">Administración del inventario</h2><p class="muted">Ejemplo funcional en el navegador. Los cambios se guardan localmente en este dispositivo.</p></div><button type="button" class="btn btn-dark" id="btn-add">+ Registrar vehículo</button></div>
+        <div class="admin-stats"><div class="stat-card"><span>Vehículos registrados</span><strong id="stat-total">0</strong></div><div class="stat-card"><span>Disponibles</span><strong id="stat-available">0</strong></div><div class="stat-card"><span>Marcas</span><strong id="stat-brands">0</strong></div></div>
+        <div class="admin-table-wrap"><table class="admin-table"><caption class="sr-only">Listado de vehículos para administrar</caption><thead><tr><th scope="col">Vehículo</th><th scope="col">Año</th><th scope="col">Precio</th><th scope="col">Estado</th><th scope="col">Acciones</th></tr></thead><tbody id="admin-tbody"></tbody></table></div>
+        <p class="admin-note">ⓘ Demostración front-end: agregar, editar y eliminar funcionan con almacenamiento local (<code>localStorage</code>), sin conexión a MySQL.</p>
+      </div>
+    </section>
+
+    <section id="contacto" class="contact-section" aria-labelledby="contact-title"><div class="container contact-panel"><div><p class="eyebrow">¿TIENES PREGUNTAS?</p><h2 id="contact-title">Te ayudamos a encontrar lo que buscas.</h2><p>Explora el catálogo y prepara una consulta para compartir por WhatsApp. No se envían mensajes automáticamente.</p></div><a class="btn btn-gold" href="#vehiculos">Ver vehículos disponibles <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><span class="brand footer-brand">AutoDealer<span class="brand-accent">360</span></span><p>Prototipo académico · SENA · Análisis y Desarrollo de Software</p><a href="#inicio">Volver arriba ↑</a></div></footer>
+
+  <dialog id="detail-dialog" class="dialog detail-dialog" aria-labelledby="detail-title"><div class="dialog-shell"><button class="dialog-close" type="button" data-close="detail-dialog" aria-label="Cerrar detalle">×</button><div id="detail-content"></div></div></dialog>
+  <dialog id="vehicle-dialog" class="dialog edit-dialog" aria-labelledby="form-title"><form id="vehicle-form" class="dialog-shell"><button class="dialog-close" type="button" data-close="vehicle-dialog" aria-label="Cerrar formulario">×</button><p class="eyebrow eyebrow-dark">INVENTARIO</p><h2 id="form-title">Registrar vehículo</h2><input id="vehicle-id" type="hidden"><div class="edit-form-grid"><div class="form-field"><label for="v-marca">Marca *</label><input id="v-marca" name="marca" required maxlength="40" placeholder="Ej. Toyota"></div><div class="form-field"><label for="v-modelo">Modelo *</label><input id="v-modelo" name="modelo" required maxlength="50" placeholder="Ej. Corolla"></div><div class="form-field"><label for="v-anio">Año *</label><input id="v-anio" name="anio" type="number" min="1990" max="2030" required></div><div class="form-field"><label for="v-precio">Precio (COP) *</label><input id="v-precio" name="precio" type="number" min="1000000" step="100000" required></div><div class="form-field"><label for="v-km">Kilometraje *</label><input id="v-km" name="km" type="number" min="0" required></div><div class="form-field"><label for="v-estado">Estado</label><select id="v-estado" name="estado"><option value="Disponible">Disponible</option><option value="Reservado">Reservado</option><option value="Vendido">Vendido</option></select></div><div class="form-field"><label for="v-transmision">Transmisión</label><select id="v-transmision" name="transmision"><option value="Automática">Automática</option><option value="Manual">Manual</option></select></div><div class="form-field"><label for="v-combustible">Combustible</label><select id="v-combustible" name="combustible"><option value="Gasolina">Gasolina</option><option value="Híbrido">Híbrido</option><option value="Diésel">Diésel</option><option value="Eléctrico">Eléctrico</option></select></div></div><div class="form-actions"><button class="btn btn-soft" type="button" data-close="vehicle-dialog">Cancelar</button><button class="btn btn-gold" type="submit">Guardar vehículo</button></div></form></dialog>
+  <dialog id="login-dialog" class="dialog login-dialog" aria-labelledby="login-title"><div class="dialog-shell"><button class="dialog-close" type="button" data-close="login-dialog" aria-label="Cerrar acceso">×</button><span class="login-avatar" aria-hidden="true">◉</span><h2 id="login-title">Acceso al sistema</h2><p>Esta pantalla representa el módulo de autenticación previsto para AutoDealer360. El inicio de sesión real requiere un backend seguro.</p><div class="demo-info">Vista de demostración — sin validación de usuarios ni contraseñas.</div><button type="button" class="btn btn-gold btn-full" id="continue-demo">Explorar panel de administración</button></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
