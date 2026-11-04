@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex,nofollow"/><title>Administración | AutoDealer360</title>
+<link rel="stylesheet" href="/css/styles.css"/><link rel="stylesheet" href="/css/admin.css"/>
+<script src="/js/shared.js" defer></script><script src="/js/admin.js" defer></script>
+</head><body>
+<header class="site-header"><div class="container nav-bar"><a class="brand" href="/">AutoDealer<span class="gold">360</span></a>
+<nav class="nav-links" aria-label="Menú"><a href="/">Ver catálogo público ↗</a></nav></div></header>
+<main class="admin-main container">
+  <div class="admin-title"><div><p class="eyebrow">ÁREA PRIVADA</p><h1>Administración de vehículos</h1><p>Gestiona el inventario y las publicaciones de tu concesionario.</p></div>
+  <button id="logout" class="btn btn-outline" hidden>Cerrar sesión</button></div>
+  <p id="admin-alert" class="admin-alert" role="status" aria-live="polite" hidden></p>
+  <section id="login-panel" class="admin-panel login-panel"><h2>Iniciar sesión</h2>
+    <form id="login-form" class="admin-form"><label>Correo electrónico<input name="email" type="email" autocomplete="username" maxlength="190" required/></label>
+    <label>Contraseña<input name="password" type="password" autocomplete="current-password" required/></label>
+    <button type="submit" class="btn btn-dark">Entrar al panel</button></form>
+  </section>
+  <section id="admin-dashboard" hidden>
+    <div class="admin-toolbar"><div><h2>Inventario del concesionario</h2><p>Los vehículos vendidos y ocultos se conservan en el historial.</p></div>
+       <button id="new-vehicle" class="btn btn-gold">+ Agregar vehículo</button></div>
+    <div id="vehicles-list" class="admin-panel"></div>
+    <section id="edit-panel" class="admin-panel edit-panel" hidden>
+      <div class="admin-form-title"><h2 id="form-title">Nuevo vehículo</h2><button type="button" class="btn btn-outline" id="cancel-form">Cancelar</button></div>
+      <form id="vehicle-form" class="admin-form"><div class="admin-fields">
+        <label>Marca <input name="marca" maxlength="80" placeholder="Volkswagen" required/></label>
+        <label>Modelo <input name="modelo" maxlength="80" placeholder="Gol" required/></label>
+        <label>Versión <input name="version" maxlength="100" placeholder="Trendline 1.6" required/></label>
+        <label>Año <input name="anio" type="number" min="1950" max="2100" required/></label>
+        <label>Precio (COP) <input name="precio" type="number" min="100000" max="9999999999999" step="1" required/></label>
+        <label>Kilometraje <input name="kilometraje" type="number" min="0" max="3000000" required/></label>
+        <label>Color <input name="color" maxlength="60" required/></label>
+        <label>Transmisión <select name="transmision" required><option>Manual</option><option>Automática</option><option>Semiautomática</option></select></label>
+        <label>Combustible <select name="combustible" required><option>Gasolina</option><option>Diésel</option><option>Híbrido</option><option>Eléctrico</option><option>Gas</option></select></label>
+        <label>Cilindraje <input name="cilindraje" maxlength="40" placeholder="1.6 L" required/></label>
+        <label>Ciudad <input name="ciudad" maxlength="80" value="Bogotá" required/></label>
+        <label>Disponibilidad <select name="estado" required><option>Disponible</option><option>Reservado</option><option>Vendido</option></select></label>
+        <label class="wide">Descripción general <textarea name="descripcion_general" rows="3" maxlength="8000" placeholder="Equipamiento, accesorios, historial…"></textarea></label>
+        <label class="wide">Descripción mecánica <textarea name="descripcion_mecanica" rows="3" maxlength="8000" placeholder="Motor, caja, frenos, mantenimiento…"></textarea></label>
+        <div class="wide photo-uploader">
+          <label for="photo-files">Subir fotografías desde el computador</label>
+          <input id="photo-files" type="file" accept="image/jpeg,image/png,image/webp" multiple />
+          <small>JPG, PNG o WebP · hasta 6 MB por imagen · máximo 12 fotografías por vehículo.</small>
+          <button type="button" class="btn btn-outline" id="upload-photos">Subir fotografías seleccionadas</button>
+          <small>Primero sube las fotos y después pulsa <strong>Guardar vehículo</strong> al finalizar el formulario.</small>
+          <div id="photo-previews" class="photo-previews" aria-live="polite"></div>
+        </div>
+        <label class="wide">Fotografías guardadas (una dirección HTTPS por línea)
+          <textarea name="imagenes" rows="3" placeholder="Las direcciones de tus fotos aparecerán aquí automáticamente."></textarea>
+          <small>La primera fotografía será la principal. También puedes pegar direcciones HTTPS existentes, quitar fotos o cambiar su orden.</small>
+        </label>
+        <label class="check-label"><input name="publicado" type="checkbox" checked/> Publicado</label>
+        <label class="check-label"><input name="destacado" type="checkbox"/> Destacado en el catálogo</label>
+      </div><button type="submit" class="btn btn-dark">Guardar vehículo</button></form>
+    </section>
+  </section>
+</main><footer class="site-footer"><div class="container">AutoDealer360 · Acceso reservado al personal autorizado</div></footer>
+</body></html>

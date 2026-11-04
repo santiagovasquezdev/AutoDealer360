@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AutoDealer360: descubre vehículos usados disponibles y consulta a un asesor." />
+  <title>Inventario de autos usados | AutoDealer360</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="/js/shared.js" defer></script>
+  <script src="/js/catalog.js" defer></script>
+</head>
+<body>
+  <header class="site-header"><div class="container nav-bar">
+    <a class="brand" href="/" aria-label="AutoDealer360, ir al inicio"><span class="brand-icon">A<span>360</span></span><span>AutoDealer<span class="gold">360</span></span></a>
+    <nav class="nav-links" aria-label="Menú principal"><a class="active" href="/">Vehículos</a><a href="/nosotros.html">Nosotros</a><a data-whatsapp-general target="_blank" rel="noopener noreferrer" href="#">Contactar</a></nav><details class="mobile-nav"><summary aria-label="Abrir menú de navegación">Menú <span aria-hidden="true">☰</span></summary><nav aria-label="Navegación móvil"><a href="/">Vehículos</a><a href="/nosotros.html">Nosotros</a><a data-whatsapp-general target="_blank" rel="noopener noreferrer" href="#">Contactar</a></nav></details></div></header>
+  <div class="demo-banner" id="demo-banner" hidden><div class="container">Modo demostración: los vehículos, precios y características son ejemplos ficticios.</div></div>
+  <main>
+    <section class="hero"><div class="container hero-inner"><div class="hero-copy"><p class="eyebrow">TU PRÓXIMO VEHÍCULO TE ESPERA</p><h1>Encuentra el auto ideal <em>para tu camino.</em></h1><p>Explora nuestro inventario de vehículos usados y recibe atención personalizada. Aquí comienza tu próxima aventura.</p><a href="#inventario" class="btn btn-gold">Explorar inventario <span aria-hidden="true">↗</span></a></div><div class="hero-art"><img src="/assets/auto-gris.svg" alt="Ilustración de un automóvil" /><div class="hero-stat"><strong>Compra con confianza</strong><span>Atención cercana y personalizada</span></div></div></div></section>
+    <section class="inventory-section" id="inventario"><div class="container">
+      <div class="section-heading"><div><p class="eyebrow">NUESTRO CATÁLOGO</p><h2>Vehículos disponibles</h2></div><p>Filtra el inventario y encuentra lo que estás buscando.</p></div>
+      <div class="catalog-layout">
+        <aside class="filter-panel" id="filter-panel"><div class="filter-heading"><h3>Filtrar búsqueda</h3><button type="button" id="filter-toggle" class="filter-toggle" aria-controls="filter-body" aria-expanded="true">Ocultar filtros <span aria-hidden="true">▴</span></button><span class="filter-decor" aria-hidden="true">☷</span></div>
+          <div class="filter-body" id="filter-body"><form id="filters-form">
+            <label for="q">Buscar vehículo</label><input id="q" name="q" type="search" placeholder="Ej. Gol, Touring…" maxlength="100" />
+            <label for="marca">Marca</label><select name="marca" id="marca"><option value="">Todas</option></select>
+            <label for="modelo">Modelo</label><select name="modelo" id="modelo"><option value="">Todos</option></select>
+            <label for="color">Color</label><select name="color" id="color"><option value="">Todos</option></select>
+            <label for="precioMin">Precio desde (COP)</label><input name="precioMin" id="precioMin" type="number" min="0" step="100000" placeholder="Ej. 30000000" />
+            <label for="precioMax">Precio hasta (COP)</label><input name="precioMax" id="precioMax" type="number" min="0" step="100000" placeholder="Ej. 70000000" />
+            <button class="btn btn-outline full" type="reset">Limpiar filtros</button>
+            <button class="btn btn-dark full filter-show-results" type="button" id="filter-show-results">Ver resultados ↓</button>
+          </form>
+          <div class="filter-help"><strong>¿Necesitas asesoría?</strong><p>Te ayudamos a encontrar un vehículo para ti.</p><a data-whatsapp-general target="_blank" rel="noopener noreferrer" href="#">Habla con un asesor ↗</a></div>
+          </div>
+        </aside>
+        <div class="catalog-results"><div class="results-bar"><span id="results-summary" aria-live="polite">Cargando inventario…</span><span>Vehículos usados</span></div><div class="vehicle-grid" id="vehicle-grid" aria-live="polite"></div><div class="pagination" id="pagination"></div></div>
+      </div>
+    </div></section>
+    <section class="contact-strip"><div class="container contact-strip-inner"><div><p class="eyebrow">ESTAMOS PARA AYUDARTE</p><h2>¿Encontraste algo que te gusta?</h2><p>Consulta disponibilidad, detalles y próximos pasos con nuestro equipo.</p></div><a class="btn btn-gold" data-whatsapp-general target="_blank" rel="noopener noreferrer" href="#">Hablar por WhatsApp ↗</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><span class="brand small">AutoDealer<span class="gold">360</span></span><span>Concesionario de vehículos usados · Catálogo sujeto a disponibilidad.</span><span>© <span id="year">2026</span> AutoDealer360</span></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

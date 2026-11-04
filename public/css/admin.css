@@ -1,0 +1,67 @@
+.admin-main{padding-block:52px 90px;min-height:72vh}
+.admin-title,.admin-toolbar,.admin-form-title{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.admin-title h1{font-size:clamp(26px,3.5vw,38px);letter-spacing:-1px;margin:0}
+.admin-title p:not(.eyebrow),.admin-toolbar p{color:var(--muted);font-size:14px}
+.admin-panel{border:1px solid var(--line);background:#fff;border-radius:14px;padding:24px;margin-top:24px}
+.login-panel{max-width:460px;margin:38px auto}.admin-panel h2,.admin-toolbar h2{margin-top:0;font-size:21px}
+.admin-form{display:flex;flex-direction:column;gap:18px}.admin-form label{display:flex;flex-direction:column;gap:6px;font-weight:750;font-size:13px}
+.admin-form input:not([type=checkbox]),.admin-form select,.admin-form textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #c9d4e2;background:#fff;font:inherit;font-size:14px;color:#202b38}
+.admin-form input:focus,.admin-form textarea:focus,.admin-form select:focus{outline:2px solid #c5a46b66;border-color:#9b7743}
+.admin-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.admin-fields .wide{grid-column:1/-1}.admin-fields .check-label{display:flex;flex-direction:row;align-items:center;gap:10px}.check-label input{width:18px;height:18px}
+.admin-alert{background:#fef4db;border:1px solid #f2d7a6;color:#684614;padding:14px;border-radius:8px;white-space:pre-wrap}
+.admin-alert[hidden],#admin-dashboard[hidden],#login-panel[hidden],#edit-panel[hidden],#logout[hidden]{display:none}
+.admin-toolbar{margin-top:20px}.admin-toolbar h2{margin-bottom:0}.admin-table-wrap{overflow-x:auto}
+.admin-table{width:100%;border-collapse:collapse;text-align:left;font-size:13px;min-width:800px}.admin-table th{color:#687a8f;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.admin-table th,.admin-table td{padding:12px;border-bottom:1px solid var(--line)}.admin-table td small{display:block;color:var(--muted);margin-top:3px}
+.admin-table img{width:84px;height:59px;object-fit:cover;border-radius:5px;background:#e5ebef}
+.admin-actions{display:flex;gap:7px;flex-wrap:wrap}.admin-actions button{padding:7px 9px;font-size:11px;white-space:nowrap}
+.admin-state{font-size:12px;border-radius:7px;padding:5px 8px;background:#f1f4f7}
+.admin-state.sold{background:#fff0ee;color:#9d342b}.admin-muted{color:#8a96a4}.admin-form small{color:#687a8f;line-height:1.6;font-weight:400}
+@media(max-width:720px){.admin-title,.admin-toolbar,.admin-form-title{align-items:flex-start;flex-direction:column}.admin-fields{grid-template-columns:1fr}.admin-panel{padding:16px}}
+
+.photo-uploader{display:flex;flex-direction:column;gap:9px;border:1px dashed #a2b0c2;border-radius:10px;background:#f8fafc;padding:15px}
+.photo-uploader>label{font-weight:750;font-size:13px}
+.photo-uploader #photo-files{background:#fff;max-width:100%}
+.photo-uploader #upload-photos{align-self:flex-start}
+.photo-uploader #upload-photos:disabled{opacity:.55;cursor:not-allowed}
+.photo-previews{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:12px}
+.photo-preview{padding:9px;background:#fff;border:1px solid var(--line);border-radius:9px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.photo-preview img{width:100%;height:100px;object-fit:cover;border-radius:6px;background:#ebeff4}
+.photo-preview>small{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.photo-preview-actions{display:flex;flex-wrap:wrap;gap:5px}
+.photo-preview-actions button{font-size:11px;border:1px solid #b8c4d0;border-radius:5px;padding:5px 8px;background:#fff;cursor:pointer}
+.photo-preview-actions button:hover{background:#f1f5f9}
+
+/* Fase 4 — tarjetas del inventario administrativo para móvil */
+.admin-mobile-list{display:none}
+.admin-list-note{display:block;margin-top:15px;color:var(--muted);line-height:1.6}
+.admin-mobile-card{min-width:0;border:1px solid var(--line);background:#fff;border-radius:13px;padding:15px;display:flex;flex-direction:column;gap:13px}
+.admin-mobile-top{display:flex;align-items:flex-start;gap:12px;min-width:0}
+.admin-mobile-top>img{width:110px;height:84px;object-fit:cover;border-radius:8px;background:#e5ebef;flex-shrink:0}
+.admin-mobile-info{min-width:0;display:flex;flex-direction:column;gap:4px;font-size:14px}
+.admin-mobile-info>strong:first-child{line-height:1.25;overflow-wrap:anywhere}
+.admin-mobile-info small{font-size:12px;color:var(--muted);line-height:1.5;overflow-wrap:anywhere}
+.admin-mobile-price{font-size:18px;color:var(--navy);overflow-wrap:anywhere}
+.admin-mobile-meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.admin-publication{background:#f0f3f8;border-radius:7px;padding:5px 8px;font-size:12px;color:#384b61}
+@media(max-width:760px){
+  .admin-table-wrap{display:none}
+  .admin-mobile-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:20px}
+  .admin-mobile-card .admin-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .admin-mobile-card .admin-actions button{font-size:12px;min-height:42px;padding:9px;white-space:normal}
+  .admin-mobile-card .admin-actions button:first-child{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .admin-mobile-card .admin-actions button:nth-child(2){grid-column:2}
+  .admin-mobile-card .admin-actions button:nth-child(3){grid-column:1/-1}
+  .admin-panel{min-width:0}
+  .admin-form-title{gap:8px}
+  .admin-form-title button{min-height:44px}
+  .admin-form input[type=file]{font-size:13px;min-width:0}
+  .admin-form input,.admin-form select,.admin-form textarea{min-width:0}
+  .admin-main .admin-fields{grid-template-columns:minmax(0,1fr)}
+  #vehicle-form>button[type=submit]{min-height:48px}
+}
+@media(max-width:380px){
+  .admin-mobile-top>img{width:90px;height:75px}
+  .admin-mobile-price{font-size:16px}
+}
