@@ -1,39 +1,51 @@
-# AutoDealer360 — Fase 4 · Diseño adaptable (responsive)
+# AutoDealer360
 
-Esta versión se creó a partir de la **Fase 3**, que ya funciona con MySQL, sesiones privadas y Cloudinary. **No cambia ninguna tabla ni requiere volver a crear administradores**.
+**Plataforma web para la exhibición y gestión de vehículos usados.**
 
-## Qué se actualizó
+AutoDealer360 es una aplicación web diseñada para un concesionario de automóviles usados. Centraliza la información del negocio y su inventario, permite a los clientes explorar los vehículos disponibles y facilita el contacto directo con un asesor comercial mediante WhatsApp.
 
-- Menú de navegación desplegable en el catálogo, la ficha de vehículos y «Nosotros» para pantallas pequeñas. Los enlaces de WhatsApp conservan la configuración de `.env`.
-- Filtros del catálogo contraídos al entrar desde un celular; se pueden abrir, aplicar y cerrar con «Ver resultados». En escritorio siguen a la vista.
-- Inventario administrativo: tabla en escritorio y tarjetas independientes con precio completo, estado, publicación y acciones en celular.
-- Formulario administrativo: retoques de tamaños y controles táctiles sin modificar la lógica de guardado o carga de fotografías.
-- Se distinguen con precisión los estados «Publicada» y «Oculta» de «Disponible» y «Vendido».
+El sistema cuenta con un portal público de consulta y un módulo privado de administración. Ambos comparten la misma información, de modo que los cambios realizados por el concesionario se reflejan en el catálogo.
 
-## Actualización sin perder información
+## Funcionalidades principales
 
-1. Detén el servidor de la fase anterior con `Ctrl + C`.
-2. Descomprime esta Fase 4 y abre su carpeta en VS Code. Conserva Fase 3 como respaldo.
-3. Copia **únicamente** el archivo `.env` de Fase 3 a la raíz de Fase 4, sin mostrar sus contraseñas ni subirlo a GitHub.
-4. En la terminal de VS Code ejecuta `npm.cmd install`.
-5. Ejecuta `npm.cmd run dev`. Abre `http://localhost:3000` y `http://localhost:3000/admin.html`.
-6. Usa Chrome > F12 > Ctrl+Shift+M para revisar iPhone 16 / 393 × 852.
+### Portal público
 
-**No ejecutar** scripts SQL ni `create-admin`: la base de datos y el administrador existentes se conservan.
+- **Información del concesionario:** presentación del negocio y sus canales de contacto.
+- **Catálogo de vehículos:** consulta de automóviles disponibles para la venta.
+- **Búsqueda y filtros:** localización de vehículos por marca, modelo, color y rango de precio.
+- **Detalle de cada vehículo:** galería de fotografías, precio, año, kilometraje, transmisión, combustible, descripción y características mecánicas.
+- **Contacto por WhatsApp:** acceso a una conversación con el concesionario mediante un mensaje que identifica el vehículo de interés.
+- **Diseño adaptable:** navegación desde computadores, tabletas y teléfonos móviles.
 
-## Comprobaciones recomendadas
+### Administración del concesionario
 
-- En celular: abrir «Menú», navegar, abrir y cerrar «Mostrar filtros», filtrar y tocar «Ver resultados».
-- En celular: entrar al panel, verificar que precio y botones sean completos, editar uno de los vehículos existentes.
-- En computador: comprobar que continúe la tabla administrativa y que los filtros estén a la izquierda.
-- Verificar que fotografías y WhatsApp sigan funcionando.
+- **Acceso privado:** inicio de sesión para usuarios administradores.
+- **Gestión del inventario:** registro de vehículos y actualización de sus características, precios y descripciones.
+- **Gestión de fotografías:** carga y organización de imágenes de cada automóvil.
+- **Control de disponibilidad:** administración del estado de los vehículos, incluida la opción de marcarlos como vendidos.
+- **Control de publicaciones:** posibilidad de mostrar u ocultar vehículos del catálogo público sin perder su información en el inventario.
 
-## Pruebas automatizadas
+## Tecnologías utilizadas
 
-`npm.cmd test`
+| Componente | Tecnología |
+|---|---|
+| Interfaz de usuario | HTML5, CSS3 y JavaScript |
+| Servidor y API | Node.js y Express |
+| Base de datos relacional | MySQL |
+| Gestión de imágenes | Cloudinary |
+| Control de versiones | Git y GitHub |
 
-Estas pruebas validan parte de la lógica del sistema, pero no reemplazan el examen responsive en un navegador real ni una prueba de extremo a extremo con MySQL y Cloudinary.
+## Arquitectura general
 
-## Pendiente antes de publicar
+La aplicación utiliza una arquitectura cliente-servidor:
 
-Revisión de seguridad del servidor y la cuenta de BD, optimización accesibilidad/SEO, políticas de privacidad, fotografías y datos reales, así como despliegue con HTTPS.
+1. **Frontend:** presenta el catálogo, los detalles de los vehículos y las interfaces administrativas.
+2. **Backend:** procesa las solicitudes, aplica las reglas del sistema y controla el acceso a las operaciones privadas.
+3. **Base de datos MySQL:** almacena los vehículos, sus características, las imágenes asociadas y la información necesaria para la administración.
+4. **Cloudinary:** aloja las fotografías que se muestran en las publicaciones.
+
+## Propósito del proyecto
+
+AutoDealer360 busca facilitar la consulta del inventario de un concesionario de vehículos usados y simplificar su actualización. Los clientes pueden informarse sin necesidad de crear una cuenta, mientras que el personal autorizado administra las publicaciones desde un panel independiente.
+
+El proyecto fue desarrollado como parte del proceso formativo de **Análisis y Desarrollo de Software (ADSO) del SENA**.
